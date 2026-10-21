@@ -128,3 +128,7 @@ tools/                mock_live_server.py, icon renderer
 - Barge-in depends on the server; locally the app can only cut playback (toggle in settings, device + AEC only).
 - Tokens are pasted, never refreshed.
 - Background audio is not enabled; backgrounding ends the call cleanly.
+
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE). The bundled Geist fonts are licensed separately under the SIL Open Font License 1.1 (`AlquimiaVoice/Design/Fonts/OFL.txt`).

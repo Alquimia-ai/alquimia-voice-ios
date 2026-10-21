@@ -1,0 +1,709 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		032B81DB89BD8FFD9DFF3B66 /* TranscriptClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44867995DB8E506030F75273 /* TranscriptClient.swift */; };
+		045CB723D327F173E7805130 /* HairlineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73836333B4B6C2FB54B4653C /* HairlineCard.swift */; };
+		0900F73F82E12EF7AF6E6C0A /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131609E7F5475F9A9F773220 /* ButtonStyles.swift */; };
+		0F1C43528FBA366D049A0279 /* HoldToTalkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BF55CF33CB76A3A1913A1 /* HoldToTalkButton.swift */; };
+		12299607CC87DA72360FAA1B /* RuntimeEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898710BD37DD58AD63517C6D /* RuntimeEndpointTests.swift */; };
+		180A51A1CCB51BDF9D7C7FC3 /* AudioEngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FB80EEE182EBBEAD79A95 /* AudioEngineController.swift */; };
+		194A7959DBFCC33543A8B159 /* CallReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBC5BEAE8F743C67F938283 /* CallReducer.swift */; };
+		31ACE4705E4648BD4825564A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C86209B5D0215F7867E221A /* Assets.xcassets */; };
+		33F9ACD7D52DFAB5254BCA94 /* LocalVADTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295175F7B7CE74BACE101C59 /* LocalVADTests.swift */; };
+		34D69E2FFE652E54F8B5A509 /* GeistMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE3276EC214322D7A2AFCB9C /* GeistMono-Regular.otf */; };
+		38DF906103489D55F8EE1146 /* TestSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E68EFC35EC5D4420947AB35 /* TestSignals.swift */; };
+		3A4F0C04BDC97613F135DA1C /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748E3CD7D48482B2AA64B0 /* StatusBadge.swift */; };
+		3DF5737103929B81EBA3AE8D /* EyebrowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F40A01E3C25AA5A3DF479 /* EyebrowLabel.swift */; };
+		42DB6A2AA15597F332C421E6 /* LiveEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF912C9CD5B09EB6004F0524 /* LiveEnvelope.swift */; };
+		498986558375002A534DA17B /* CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA5C800213DDB687CCB3CE4 /* CaptureProcessor.swift */; };
+		4F5E5742D3BB0C5ECD19236A /* Geist-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D23029112D999485A6DADADE /* Geist-Bold.otf */; };
+		51C5DC950299EE595E6C8FB7 /* LevelMeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4301A7ACC2DDBCD4C9C7B82B /* LevelMeterTests.swift */; };
+		5A2AE6F3C8607DD0F0548E6E /* ShimmerText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC876D464A6270B61A11E89 /* ShimmerText.swift */; };
+		5C91928C92A46CDEED5A7E1F /* AudioActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD5E81E092D7DFD4173844 /* AudioActor.swift */; };
+		5F15573D342404527DE47507 /* CaptureProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA12B459C11C4804B77B63 /* CaptureProcessorTests.swift */; };
+		67003E8AC55245A1B258BBD7 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5662BF009E0E50B7CBE2873 /* L10n.swift */; };
+		68F2D3C5EF30E5B0BE246EE2 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D18AEC5384BC391A548207D /* OFL.txt */; };
+		6F58FBB4B693D153B5BC419B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E819E7E3FB0B50B678649 /* Log.swift */; };
+		6F7BBE3932823EA380D3ACEA /* TranscriptModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD27FE97F1E13BFB66EFCC8 /* TranscriptModels.swift */; };
+		7FB97BE20EE7A8FC7C1EA7FC /* GeistMono-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA7D75902DEBA7BDEF195B5D /* GeistMono-Medium.otf */; };
+		83959A6A545E28C9B4612B1B /* Geist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D67D34639DBB58ECE26EF9F /* Geist-Medium.otf */; };
+		8C89FFEF4D86DD7862E90A26 /* PCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E9F0AB4B37FBA7C699726B /* PCM.swift */; };
+		929EFA3F93D995C5C6CE644E /* RuntimeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AA6083E4D43C202A7A83F /* RuntimeEndpoint.swift */; };
+		AC2ED00EFB0911DAE937E163 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E6260FD4C794E62BB43C20 /* CallView.swift */; };
+		AC82AB29250131BF0F3C5B0C /* LevelMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B902D32CCE54409BFDAB715B /* LevelMeterView.swift */; };
+		B05EA8BF4F2ECEA6413475D0 /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC48340C9A3277DC105F40C /* TranscriptView.swift */; };
+		B1654603C75AC7415ADC0E04 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35946C053AB7821485DF720 /* SettingsView.swift */; };
+		B3E4F308E0EDC467B9C98786 /* CallState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672E87146B62B50E44CDA3A6 /* CallState.swift */; };
+		B4CD4550C44EFDD7EDC91640 /* AlquimiaVoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B4D8C52EE4B8B5B92F95DA /* AlquimiaVoiceApp.swift */; };
+		C22427FD5CEA27BA00907182 /* TranscriptParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667FA4A52B0F9F002AF838A1 /* TranscriptParsingTests.swift */; };
+		C47F05944E577D29D333DB49 /* LevelMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046317EB2FC8B6888A97DEC /* LevelMeter.swift */; };
+		C48484120D8112F88E8EBA12 /* LocalVAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1323A47C400550DFCF41FD7 /* LocalVAD.swift */; };
+		C7F1981987172CD4470F73F3 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B69F8CD871CB023722FDEC /* PlaybackQueue.swift */; };
+		CCF0B54512E952862215F412 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B001500A2842D19331F4C4CE /* Theme.swift */; };
+		D15C4FA810DEB4622B14E595 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90505913DFA5B1ECF1B408 /* MessageBubble.swift */; };
+		D3E384BA9E883A71EED800D6 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502253AF22C0CFD937EECB1A /* Keychain.swift */; };
+		DA3E34AFADAACC9B5AF6A2A4 /* CallSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A9A2EF44B66426DCE8AE10 /* CallSession.swift */; };
+		DBE018ACEF45D78D4E733DE8 /* LiveConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A194DEE6C40FFCE840952CCA /* LiveConnection.swift */; };
+		E457A7F658E77359412171FD /* LiveEnvelopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE9DFBFC49E781ACAAFBEB /* LiveEnvelopeTests.swift */; };
+		E4BC4C49F8F8BBE260A468B4 /* SessionID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E267ACC308BBBFB0F760E /* SessionID.swift */; };
+		E8C1B3D328BEE0E8A1806759 /* Geist-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 871592A09946EE3C60EA36A4 /* Geist-SemiBold.otf */; };
+		EA82DF9EBE264038420666C0 /* Geist-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 479AE118599E386A107A6AB9 /* Geist-Regular.otf */; };
+		F486E96091F24526E2530DFC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51352D88720097C7CC67347F /* RootView.swift */; };
+		F5FA7138D2067EA15110887F /* PCMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417215A0F21387B06B66C78 /* PCMTests.swift */; };
+		F7C4085C69B0F4415945394D /* LiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41275BABB62D7AFB9879E00 /* LiveError.swift */; };
+		F8F752CA1B7CB3FB4F933AC7 /* CallReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B701E728D65B19DF611C082 /* CallReducerTests.swift */; };
+		FD03483EA9BE93D4E1306EC3 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ACDA8C932A995BF321F6B7 /* SettingsStore.swift */; };
+		FD98B10E85FFF1497F551743 /* VoiceDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF3751F33A6B3CEDD41B69 /* VoiceDock.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DF6CABF53F48F75FA8551A4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AE0E9DEF01DFA5707F557F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A185A8E86A88E355FB9C2D1E;
+			remoteInfo = AlquimiaVoice;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1046317EB2FC8B6888A97DEC /* LevelMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMeter.swift; sourceTree = "<group>"; };
+		131609E7F5475F9A9F773220 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		1AC02AD6D637F3C7BFA85C33 /* AlquimiaVoiceTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AlquimiaVoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27A9A2EF44B66426DCE8AE10 /* CallSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSession.swift; sourceTree = "<group>"; };
+		295175F7B7CE74BACE101C59 /* LocalVADTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVADTests.swift; sourceTree = "<group>"; };
+		35748E3CD7D48482B2AA64B0 /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
+		3B90505913DFA5B1ECF1B408 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		4301A7ACC2DDBCD4C9C7B82B /* LevelMeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMeterTests.swift; sourceTree = "<group>"; };
+		44867995DB8E506030F75273 /* TranscriptClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptClient.swift; sourceTree = "<group>"; };
+		479AE118599E386A107A6AB9 /* Geist-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geist-Regular.otf"; sourceTree = "<group>"; };
+		4AC876D464A6270B61A11E89 /* ShimmerText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerText.swift; sourceTree = "<group>"; };
+		502253AF22C0CFD937EECB1A /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		51352D88720097C7CC67347F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		5CBC5BEAE8F743C67F938283 /* CallReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallReducer.swift; sourceTree = "<group>"; };
+		5D18AEC5384BC391A548207D /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		61786EF19B7F0293A4BF0EB9 /* AlquimiaVoice.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AlquimiaVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		667FA4A52B0F9F002AF838A1 /* TranscriptParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptParsingTests.swift; sourceTree = "<group>"; };
+		672E87146B62B50E44CDA3A6 /* CallState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallState.swift; sourceTree = "<group>"; };
+		6CA5C800213DDB687CCB3CE4 /* CaptureProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureProcessor.swift; sourceTree = "<group>"; };
+		6D0E267ACC308BBBFB0F760E /* SessionID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionID.swift; sourceTree = "<group>"; };
+		73836333B4B6C2FB54B4653C /* HairlineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairlineCard.swift; sourceTree = "<group>"; };
+		74E9F0AB4B37FBA7C699726B /* PCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCM.swift; sourceTree = "<group>"; };
+		78BE9DFBFC49E781ACAAFBEB /* LiveEnvelopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveEnvelopeTests.swift; sourceTree = "<group>"; };
+		7B701E728D65B19DF611C082 /* CallReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallReducerTests.swift; sourceTree = "<group>"; };
+		7E68EFC35EC5D4420947AB35 /* TestSignals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSignals.swift; sourceTree = "<group>"; };
+		7F1BF55CF33CB76A3A1913A1 /* HoldToTalkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldToTalkButton.swift; sourceTree = "<group>"; };
+		871592A09946EE3C60EA36A4 /* Geist-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geist-SemiBold.otf"; sourceTree = "<group>"; };
+		898710BD37DD58AD63517C6D /* RuntimeEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeEndpointTests.swift; sourceTree = "<group>"; };
+		8C86209B5D0215F7867E221A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8CC48340C9A3277DC105F40C /* TranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptView.swift; sourceTree = "<group>"; };
+		8D67D34639DBB58ECE26EF9F /* Geist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geist-Medium.otf"; sourceTree = "<group>"; };
+		8EAA12B459C11C4804B77B63 /* CaptureProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureProcessorTests.swift; sourceTree = "<group>"; };
+		93CF3751F33A6B3CEDD41B69 /* VoiceDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceDock.swift; sourceTree = "<group>"; };
+		A194DEE6C40FFCE840952CCA /* LiveConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveConnection.swift; sourceTree = "<group>"; };
+		A3B4D8C52EE4B8B5B92F95DA /* AlquimiaVoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlquimiaVoiceApp.swift; sourceTree = "<group>"; };
+		AA7D75902DEBA7BDEF195B5D /* GeistMono-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeistMono-Medium.otf"; sourceTree = "<group>"; };
+		ACD27FE97F1E13BFB66EFCC8 /* TranscriptModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptModels.swift; sourceTree = "<group>"; };
+		AE3276EC214322D7A2AFCB9C /* GeistMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeistMono-Regular.otf"; sourceTree = "<group>"; };
+		B001500A2842D19331F4C4CE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B1323A47C400550DFCF41FD7 /* LocalVAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVAD.swift; sourceTree = "<group>"; };
+		B41275BABB62D7AFB9879E00 /* LiveError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveError.swift; sourceTree = "<group>"; };
+		B8ACDA8C932A995BF321F6B7 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		B902D32CCE54409BFDAB715B /* LevelMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMeterView.swift; sourceTree = "<group>"; };
+		BC2FB80EEE182EBBEAD79A95 /* AudioEngineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngineController.swift; sourceTree = "<group>"; };
+		C1B69F8CD871CB023722FDEC /* PlaybackQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackQueue.swift; sourceTree = "<group>"; };
+		C35946C053AB7821485DF720 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C7BD5E81E092D7DFD4173844 /* AudioActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioActor.swift; sourceTree = "<group>"; };
+		D23029112D999485A6DADADE /* Geist-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geist-Bold.otf"; sourceTree = "<group>"; };
+		D34AA6083E4D43C202A7A83F /* RuntimeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeEndpoint.swift; sourceTree = "<group>"; };
+		D5662BF009E0E50B7CBE2873 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		D5E6260FD4C794E62BB43C20 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
+		DF912C9CD5B09EB6004F0524 /* LiveEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveEnvelope.swift; sourceTree = "<group>"; };
+		EE8F40A01E3C25AA5A3DF479 /* EyebrowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyebrowLabel.swift; sourceTree = "<group>"; };
+		F417215A0F21387B06B66C78 /* PCMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMTests.swift; sourceTree = "<group>"; };
+		FF7E819E7E3FB0B50B678649 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0C69707A66095C1BDD471283 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61786EF19B7F0293A4BF0EB9 /* AlquimiaVoice.app */,
+				1AC02AD6D637F3C7BFA85C33 /* AlquimiaVoiceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B7B6C2189AB2F0065B5CA7E /* Transcript */ = {
+			isa = PBXGroup;
+			children = (
+				44867995DB8E506030F75273 /* TranscriptClient.swift */,
+				ACD27FE97F1E13BFB66EFCC8 /* TranscriptModels.swift */,
+				8CC48340C9A3277DC105F40C /* TranscriptView.swift */,
+			);
+			path = Transcript;
+			sourceTree = "<group>";
+		};
+		334B08F2C5FEF4282508F829 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A194DEE6C40FFCE840952CCA /* LiveConnection.swift */,
+				DF912C9CD5B09EB6004F0524 /* LiveEnvelope.swift */,
+				B41275BABB62D7AFB9879E00 /* LiveError.swift */,
+				D34AA6083E4D43C202A7A83F /* RuntimeEndpoint.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		82F701E65C7D1236BCB98610 /* Call */ = {
+			isa = PBXGroup;
+			children = (
+				5CBC5BEAE8F743C67F938283 /* CallReducer.swift */,
+				27A9A2EF44B66426DCE8AE10 /* CallSession.swift */,
+				672E87146B62B50E44CDA3A6 /* CallState.swift */,
+				D5E6260FD4C794E62BB43C20 /* CallView.swift */,
+				93CF3751F33A6B3CEDD41B69 /* VoiceDock.swift */,
+			);
+			path = Call;
+			sourceTree = "<group>";
+		};
+		849004C142FE904B619109B7 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				C7BD5E81E092D7DFD4173844 /* AudioActor.swift */,
+				BC2FB80EEE182EBBEAD79A95 /* AudioEngineController.swift */,
+				6CA5C800213DDB687CCB3CE4 /* CaptureProcessor.swift */,
+				1046317EB2FC8B6888A97DEC /* LevelMeter.swift */,
+				B1323A47C400550DFCF41FD7 /* LocalVAD.swift */,
+				74E9F0AB4B37FBA7C699726B /* PCM.swift */,
+				C1B69F8CD871CB023722FDEC /* PlaybackQueue.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		897E5ECF400B7AC7D97D3948 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B8ACDA8C932A995BF321F6B7 /* SettingsStore.swift */,
+				C35946C053AB7821485DF720 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		958336D29E32A7C6F53748E4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				131609E7F5475F9A9F773220 /* ButtonStyles.swift */,
+				EE8F40A01E3C25AA5A3DF479 /* EyebrowLabel.swift */,
+				73836333B4B6C2FB54B4653C /* HairlineCard.swift */,
+				7F1BF55CF33CB76A3A1913A1 /* HoldToTalkButton.swift */,
+				B902D32CCE54409BFDAB715B /* LevelMeterView.swift */,
+				3B90505913DFA5B1ECF1B408 /* MessageBubble.swift */,
+				4AC876D464A6270B61A11E89 /* ShimmerText.swift */,
+				35748E3CD7D48482B2AA64B0 /* StatusBadge.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AFDFAD321A1D1A95598B0087 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				B001500A2842D19331F4C4CE /* Theme.swift */,
+				EFE77D98A5414973A3FD5305 /* Fonts */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		B9F8B5DCCA704F5B7C60529B /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				82F701E65C7D1236BCB98610 /* Call */,
+				897E5ECF400B7AC7D97D3948 /* Settings */,
+				1B7B6C2189AB2F0065B5CA7E /* Transcript */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		C0F001A9AD4987082ABADA75 /* AlquimiaVoiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B701E728D65B19DF611C082 /* CallReducerTests.swift */,
+				8EAA12B459C11C4804B77B63 /* CaptureProcessorTests.swift */,
+				4301A7ACC2DDBCD4C9C7B82B /* LevelMeterTests.swift */,
+				78BE9DFBFC49E781ACAAFBEB /* LiveEnvelopeTests.swift */,
+				295175F7B7CE74BACE101C59 /* LocalVADTests.swift */,
+				F417215A0F21387B06B66C78 /* PCMTests.swift */,
+				898710BD37DD58AD63517C6D /* RuntimeEndpointTests.swift */,
+				7E68EFC35EC5D4420947AB35 /* TestSignals.swift */,
+				667FA4A52B0F9F002AF838A1 /* TranscriptParsingTests.swift */,
+			);
+			path = AlquimiaVoiceTests;
+			sourceTree = "<group>";
+		};
+		C56972E08D385153C6320303 = {
+			isa = PBXGroup;
+			children = (
+				ECC7C77E737C0E96F809C116 /* AlquimiaVoice */,
+				C0F001A9AD4987082ABADA75 /* AlquimiaVoiceTests */,
+				0C69707A66095C1BDD471283 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBFE7EEEB5A56A3F324930C7 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				502253AF22C0CFD937EECB1A /* Keychain.swift */,
+				D5662BF009E0E50B7CBE2873 /* L10n.swift */,
+				FF7E819E7E3FB0B50B678649 /* Log.swift */,
+				6D0E267ACC308BBBFB0F760E /* SessionID.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		CF1CB2CE63EDB94A312CB6ED /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A3B4D8C52EE4B8B5B92F95DA /* AlquimiaVoiceApp.swift */,
+				51352D88720097C7CC67347F /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		ECC7C77E737C0E96F809C116 /* AlquimiaVoice */ = {
+			isa = PBXGroup;
+			children = (
+				CF1CB2CE63EDB94A312CB6ED /* App */,
+				849004C142FE904B619109B7 /* Audio */,
+				958336D29E32A7C6F53748E4 /* Components */,
+				AFDFAD321A1D1A95598B0087 /* Design */,
+				B9F8B5DCCA704F5B7C60529B /* Features */,
+				334B08F2C5FEF4282508F829 /* Networking */,
+				F5BFCE2A6096E8D46CC14EE8 /* Resources */,
+				CBFE7EEEB5A56A3F324930C7 /* Support */,
+			);
+			path = AlquimiaVoice;
+			sourceTree = "<group>";
+		};
+		EFE77D98A5414973A3FD5305 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D23029112D999485A6DADADE /* Geist-Bold.otf */,
+				8D67D34639DBB58ECE26EF9F /* Geist-Medium.otf */,
+				479AE118599E386A107A6AB9 /* Geist-Regular.otf */,
+				871592A09946EE3C60EA36A4 /* Geist-SemiBold.otf */,
+				AA7D75902DEBA7BDEF195B5D /* GeistMono-Medium.otf */,
+				AE3276EC214322D7A2AFCB9C /* GeistMono-Regular.otf */,
+				5D18AEC5384BC391A548207D /* OFL.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F5BFCE2A6096E8D46CC14EE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C86209B5D0215F7867E221A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D21B3A4F8906A89DF71E770 /* AlquimiaVoiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0F2A779A2AF8C8AC4A73304 /* Build configuration list for PBXNativeTarget "AlquimiaVoiceTests" */;
+			buildPhases = (
+				E8F3B741DAFB642E29398E32 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC41B92550C0BDCBAF77B8DF /* PBXTargetDependency */,
+			);
+			name = AlquimiaVoiceTests;
+			packageProductDependencies = (
+			);
+			productName = AlquimiaVoiceTests;
+			productReference = 1AC02AD6D637F3C7BFA85C33 /* AlquimiaVoiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A185A8E86A88E355FB9C2D1E /* AlquimiaVoice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2205A424BAB89F76241F8B47 /* Build configuration list for PBXNativeTarget "AlquimiaVoice" */;
+			buildPhases = (
+				821BEF1D2F63E092D17D4867 /* Sources */,
+				E1A71B038E7105A9F1DA80BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlquimiaVoice;
+			packageProductDependencies = (
+			);
+			productName = AlquimiaVoice;
+			productReference = 61786EF19B7F0293A4BF0EB9 /* AlquimiaVoice.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8AE0E9DEF01DFA5707F557F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A185A8E86A88E355FB9C2D1E = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B75710A91A82C59EFE1D1477 /* Build configuration list for PBXProject "AlquimiaVoice" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C56972E08D385153C6320303;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0C69707A66095C1BDD471283 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A185A8E86A88E355FB9C2D1E /* AlquimiaVoice */,
+				8D21B3A4F8906A89DF71E770 /* AlquimiaVoiceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1A71B038E7105A9F1DA80BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31ACE4705E4648BD4825564A /* Assets.xcassets in Resources */,
+				4F5E5742D3BB0C5ECD19236A /* Geist-Bold.otf in Resources */,
+				83959A6A545E28C9B4612B1B /* Geist-Medium.otf in Resources */,
+				EA82DF9EBE264038420666C0 /* Geist-Regular.otf in Resources */,
+				E8C1B3D328BEE0E8A1806759 /* Geist-SemiBold.otf in Resources */,
+				7FB97BE20EE7A8FC7C1EA7FC /* GeistMono-Medium.otf in Resources */,
+				34D69E2FFE652E54F8B5A509 /* GeistMono-Regular.otf in Resources */,
+				68F2D3C5EF30E5B0BE246EE2 /* OFL.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		821BEF1D2F63E092D17D4867 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4CD4550C44EFDD7EDC91640 /* AlquimiaVoiceApp.swift in Sources */,
+				5C91928C92A46CDEED5A7E1F /* AudioActor.swift in Sources */,
+				180A51A1CCB51BDF9D7C7FC3 /* AudioEngineController.swift in Sources */,
+				0900F73F82E12EF7AF6E6C0A /* ButtonStyles.swift in Sources */,
+				194A7959DBFCC33543A8B159 /* CallReducer.swift in Sources */,
+				DA3E34AFADAACC9B5AF6A2A4 /* CallSession.swift in Sources */,
+				B3E4F308E0EDC467B9C98786 /* CallState.swift in Sources */,
+				AC2ED00EFB0911DAE937E163 /* CallView.swift in Sources */,
+				498986558375002A534DA17B /* CaptureProcessor.swift in Sources */,
+				3DF5737103929B81EBA3AE8D /* EyebrowLabel.swift in Sources */,
+				045CB723D327F173E7805130 /* HairlineCard.swift in Sources */,
+				0F1C43528FBA366D049A0279 /* HoldToTalkButton.swift in Sources */,
+				D3E384BA9E883A71EED800D6 /* Keychain.swift in Sources */,
+				67003E8AC55245A1B258BBD7 /* L10n.swift in Sources */,
+				C47F05944E577D29D333DB49 /* LevelMeter.swift in Sources */,
+				AC82AB29250131BF0F3C5B0C /* LevelMeterView.swift in Sources */,
+				DBE018ACEF45D78D4E733DE8 /* LiveConnection.swift in Sources */,
+				42DB6A2AA15597F332C421E6 /* LiveEnvelope.swift in Sources */,
+				F7C4085C69B0F4415945394D /* LiveError.swift in Sources */,
+				C48484120D8112F88E8EBA12 /* LocalVAD.swift in Sources */,
+				6F58FBB4B693D153B5BC419B /* Log.swift in Sources */,
+				D15C4FA810DEB4622B14E595 /* MessageBubble.swift in Sources */,
+				8C89FFEF4D86DD7862E90A26 /* PCM.swift in Sources */,
+				C7F1981987172CD4470F73F3 /* PlaybackQueue.swift in Sources */,
+				F486E96091F24526E2530DFC /* RootView.swift in Sources */,
+				929EFA3F93D995C5C6CE644E /* RuntimeEndpoint.swift in Sources */,
+				E4BC4C49F8F8BBE260A468B4 /* SessionID.swift in Sources */,
+				FD03483EA9BE93D4E1306EC3 /* SettingsStore.swift in Sources */,
+				B1654603C75AC7415ADC0E04 /* SettingsView.swift in Sources */,
+				5A2AE6F3C8607DD0F0548E6E /* ShimmerText.swift in Sources */,
+				3A4F0C04BDC97613F135DA1C /* StatusBadge.swift in Sources */,
+				CCF0B54512E952862215F412 /* Theme.swift in Sources */,
+				032B81DB89BD8FFD9DFF3B66 /* TranscriptClient.swift in Sources */,
+				6F7BBE3932823EA380D3ACEA /* TranscriptModels.swift in Sources */,
+				B05EA8BF4F2ECEA6413475D0 /* TranscriptView.swift in Sources */,
+				FD98B10E85FFF1497F551743 /* VoiceDock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8F3B741DAFB642E29398E32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8F752CA1B7CB3FB4F933AC7 /* CallReducerTests.swift in Sources */,
+				5F15573D342404527DE47507 /* CaptureProcessorTests.swift in Sources */,
+				51C5DC950299EE595E6C8FB7 /* LevelMeterTests.swift in Sources */,
+				E457A7F658E77359412171FD /* LiveEnvelopeTests.swift in Sources */,
+				33F9ACD7D52DFAB5254BCA94 /* LocalVADTests.swift in Sources */,
+				F5FA7138D2067EA15110887F /* PCMTests.swift in Sources */,
+				12299607CC87DA72360FAA1B /* RuntimeEndpointTests.swift in Sources */,
+				38DF906103489D55F8EE1146 /* TestSignals.swift in Sources */,
+				C22427FD5CEA27BA00907182 /* TranscriptParsingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BC41B92550C0BDCBAF77B8DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A185A8E86A88E355FB9C2D1E /* AlquimiaVoice */;
+			targetProxy = DF6CABF53F48F75FA8551A4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0056A26BE6CE05DF51D22903 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		190796E89F58091A314640C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.alquimia.voice.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlquimiaVoice.app/AlquimiaVoice";
+			};
+			name = Release;
+		};
+		230E8134BC754E68A4A70056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.alquimia.voice;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		23DAD8C07C86F478055D269D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		8B24A7BABDA453A8A015A561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.alquimia.voice;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A863A026535A01D1D42DF050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.alquimia.voice.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlquimiaVoice.app/AlquimiaVoice";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2205A424BAB89F76241F8B47 /* Build configuration list for PBXNativeTarget "AlquimiaVoice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B24A7BABDA453A8A015A561 /* Debug */,
+				230E8134BC754E68A4A70056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B0F2A779A2AF8C8AC4A73304 /* Build configuration list for PBXNativeTarget "AlquimiaVoiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A863A026535A01D1D42DF050 /* Debug */,
+				190796E89F58091A314640C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B75710A91A82C59EFE1D1477 /* Build configuration list for PBXProject "AlquimiaVoice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0056A26BE6CE05DF51D22903 /* Debug */,
+				23DAD8C07C86F478055D269D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8AE0E9DEF01DFA5707F557F6 /* Project object */;
+}

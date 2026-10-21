@@ -224,10 +224,10 @@ class MockRuntime:
         if self.args.silent:
             return
         await asyncio.sleep(self.args.reply_delay)
-        self.history[session_id].append({"role": "human", "content": f"(audio del usuario, turno {turn}, {seconds:.1f} s)"})
+        self.history[session_id].append({"role": "human", "content": f"(user audio, turn {turn}, {seconds:.1f} s)"})
         self.history[session_id].append({
             "role": "assistant",
-            "content": [{"type": "text", "text": f"Eco del turno {turn}. Te escuché durante {seconds:.1f} segundos."}],
+            "content": [{"type": "text", "text": f"Echo of turn {turn}. I heard you for {seconds:.1f} seconds."}],
         })
         reply = apply_gain(utterance, self.args.gain)
         sent_ms = 0

@@ -30,9 +30,9 @@
 		<true/>
 	</dict>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>Alquimia Voice se conecta a un runtime de desarrollo en tu red local.</string>
+	<string>Alquimia Voice connects to a development runtime on your local network.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Alquimia Voice usa el micrófono para que puedas hablar con el agente.</string>
+	<string>Alquimia Voice uses the microphone so you can talk to the agent.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Geist-Regular.otf</string>

@@ -35,6 +35,6 @@ struct LevelMeterView: View {
             context.stroke(marker, with: .color(Theme.Palette.mutedSoft), style: StrokeStyle(lineWidth: 1, dash: [2, 2]))
         }
         .frame(height: 24)
-        .accessibilityLabel(Text("Nivel de entrada \(Int(dbfs)) dBFS"))
+        .accessibilityLabel(Text("Input level \(Int(dbfs)) dBFS"))
     }
 }

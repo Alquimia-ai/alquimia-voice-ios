@@ -25,8 +25,8 @@ struct RuntimeEndpointTests {
 
     @Test func unsafeCharactersArePercentEncoded() throws {
         let endpoint = try #require(RuntimeEndpoint(string: "http://host"))
-        let url = endpoint.liveURL(assistantID: "mi agente", channelID: "canal ñ", agentspaceID: "a b", sessionID: "s")
-        #expect(url.absoluteString == "ws://host/live/mi%20agente/canal%20%C3%B1?agentspace_id=a%20b&session_id=s")
+        let url = endpoint.liveURL(assistantID: "my agent", channelID: "channel ü", agentspaceID: "a b", sessionID: "s")
+        #expect(url.absoluteString == "ws://host/live/my%20agent/channel%20%C3%BC?agentspace_id=a%20b&session_id=s")
     }
 
     @Test func contextRetrieveURL() throws {

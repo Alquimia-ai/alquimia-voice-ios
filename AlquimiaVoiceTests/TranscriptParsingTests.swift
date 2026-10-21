@@ -8,11 +8,11 @@ struct TranscriptParsingTests {
         let json = """
         {"messages": [
           {"role": "system", "content": "You are helpful."},
-          {"role": "human", "content": "Hola, ¿qué podés hacer?"},
+          {"role": "human", "content": "Hi, what can you do?"},
           {"role": "assistant", "content": [
-             {"type": "text", "text": "Puedo ayudarte con tus consultas."},
+             {"type": "text", "text": "I can help with your questions."},
              {"type": "image_url", "image_url": {"url": "x"}},
-             {"type": "text", "text": "¿Por dónde empezamos?"}
+             {"type": "text", "text": "Where should we start?"}
           ], "tool_calls": []},
           {"role": "tool", "content": "{}", "tool_call_id": "1"},
           {"role": "human", "content": "   "},
@@ -22,9 +22,9 @@ struct TranscriptParsingTests {
         let messages = try TranscriptParser.messages(from: Data(json.utf8))
         #expect(messages.count == 2)
         #expect(messages[0].role == .user)
-        #expect(messages[0].text == "Hola, ¿qué podés hacer?")
+        #expect(messages[0].text == "Hi, what can you do?")
         #expect(messages[1].role == .assistant)
-        #expect(messages[1].text == "Puedo ayudarte con tus consultas.\n¿Por dónde empezamos?")
+        #expect(messages[1].text == "I can help with your questions.\nWhere should we start?")
         #expect(messages[0].id != messages[1].id)
     }
 

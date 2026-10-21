@@ -28,11 +28,11 @@ targets:
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         ITSAppUsesNonExemptEncryption: false
-        NSMicrophoneUsageDescription: Alquimia Voice usa el micrófono para que puedas hablar con el agente.
-        NSLocalNetworkUsageDescription: Alquimia Voice se conecta a un runtime de desarrollo en tu red local.
+        NSMicrophoneUsageDescription: Alquimia Voice uses the microphone so you can talk to the agent.
+        NSLocalNetworkUsageDescription: Alquimia Voice connects to a development runtime on your local network.
         NSAppTransportSecurity:
           NSAllowsLocalNetworking: true
-          # Solo para desarrollo contra runtimes ws:// en la LAN. Quitar en release.
+          # Development only, for ws:// runtimes on the LAN. Remove for release.
           NSAllowsArbitraryLoads: true
         UIAppFonts:
           - Geist-Regular.otf

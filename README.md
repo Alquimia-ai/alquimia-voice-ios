@@ -34,7 +34,9 @@ uv run --with "websockets>=13" tools/mock_live_server.py --token dev --port 8080
 uv run --with "websockets>=13" tools/live_probe.py --url wss://host/live/agent/probe --token "$TOKEN" --stop
 ```
 
-Point the app at `http://localhost:8080`, token `dev`, assistant `mock` to use the mock. Use headphones on the
+Point the app at `http://localhost:8080`, token `dev`, assistant `mock` to use the mock.
+`tools/voice-agent.example.json` is a minimal audio-enabled agent spec (`openai/transcribe` + `openai/tts`) to
+register with `POST /registry/agent` on a runtime that has an `OPENAI_API_KEY` secret. Use headphones on the
 Mac: the Simulator has no echo cancellation.
 
 Debug builds also read `ALQUIMIA_RUNTIME_URL`, `ALQUIMIA_TOKEN`, `ALQUIMIA_ASSISTANT_ID`, `ALQUIMIA_MODE`

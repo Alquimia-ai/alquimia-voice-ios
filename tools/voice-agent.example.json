@@ -1,0 +1,72 @@
+{
+  "assistant_id": "alquimia-voice-demo",
+  "nickname": "Alquimia Voice Demo",
+  "description": "Voice-enabled agent for the iOS proof of concept (openai/transcribe + openai/tts).",
+  "tags": [
+    "voice",
+    "demo",
+    "ios"
+  ],
+  "audio": {
+    "input_modalities": [
+      "text",
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "audio"
+    ],
+    "stt": {
+      "provider_id": "openai/transcribe",
+      "model": "gpt-4o-mini-transcribe",
+      "api_key": {
+        "$secretRef": "OPENAI_API_KEY"
+      }
+    },
+    "tts": {
+      "provider_id": "openai/tts",
+      "model": "gpt-4o-mini-tts",
+      "voice": "alloy",
+      "output_format": "wav",
+      "api_key": {
+        "$secretRef": "OPENAI_API_KEY"
+      }
+    }
+  },
+  "response": {
+    "provider_id": "alquimia",
+    "profile": {
+      "prompt_clauses": {
+        "identity": "You are Alquimia Voice, a spoken assistant for the Alquimia platform.",
+        "personality": "Warm, precise and unhurried.",
+        "purpose": "Hold a short spoken conversation and answer questions about Alquimia.",
+        "knowledge": "",
+        "rules": "Reply in the language the user speaks. Keep every answer to one or two short sentences, suitable for text-to-speech. Never use lists, markdown or code.",
+        "response_format": "Plain conversational text."
+      },
+      "runtime_context": {
+        "skills": {},
+        "active_decorators": []
+      },
+      "evaluation_strategy": {
+        "evaluation_strategy_id": "one-shoot"
+      },
+      "persistence_strategy": "INCREMENTAL"
+    },
+    "config": {
+      "provider_id": "openai",
+      "params": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "model": "gpt-5.5",
+        "api_key": {
+          "$secretRef": "OPENAI_API_KEY"
+        }
+      }
+    }
+  },
+  "empathy": {
+    "rules": []
+  },
+  "shields": {}
+}

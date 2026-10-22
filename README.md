@@ -35,8 +35,11 @@ uv run --with "websockets>=13" tools/live_probe.py --url wss://host/live/agent/p
 ```
 
 Point the app at `http://localhost:8080`, token `dev`, assistant `mock` to use the mock.
-`tools/voice-agent.example.json` is a minimal audio-enabled agent spec (`openai/transcribe` + `openai/tts`) to
-register with `POST /registry/agent` on a runtime that has an `OPENAI_API_KEY` secret. Use headphones on the
+`tools/voice-agent.example.json` is a minimal audio-enabled agent spec (`openai/transcribe` + `openai/tts`) for a
+runtime with an `OPENAI_API_KEY` secret. `tools/voice-agent.groq-kokoro.example.json` is the configuration verified
+end to end: Groq Whisper for STT and Groq `gpt-oss-20b` for the reply (secret `GROQ_API_KEY`), and a
+[Kokoro-FastAPI](https://github.com/remsky/Kokoro-FastAPI) deployment as an OpenAI-compatible TTS (secrets
+`KOKORO_API_KEY`, `TTS_PROVIDER_BASE_URL`, `STT_PROVIDER_BASE_URL`). Register with `POST /registry/agent`. Use headphones on the
 Mac: the Simulator has no echo cancellation.
 
 Debug builds also read `ALQUIMIA_RUNTIME_URL`, `ALQUIMIA_TOKEN`, `ALQUIMIA_ASSISTANT_ID`, `ALQUIMIA_MODE`

@@ -15,9 +15,19 @@ struct RootView: View {
             }
             #if DEBUG
             .task {
-                // `ALQUIMIA_AUTOSTART=1` starts a call on launch (simulator automation only).
-                guard ProcessInfo.processInfo.environment["ALQUIMIA_AUTOSTART"] == "1", settings.isConfigured else { return }
-                session.startCall()
+                // Simulator automation only: `ALQUIMIA_AUTOSTART=1` starts a hands-free call on launch;
+                // `ALQUIMIA_AUTOPTT_SECONDS=<n>` presses the hold-to-talk control, holds it n seconds and releases it.
+                let environment = ProcessInfo.processInfo.environment
+                guard settings.isConfigured else { return }
+                if environment["ALQUIMIA_AUTOSTART"] == "1" {
+                    session.startCall()
+                }
+                if let hold = environment["ALQUIMIA_AUTOPTT_SECONDS"].flatMap(Double.init), hold > 0 {
+                    try? await Task.sleep(for: .seconds(1))
+                    session.pressPTT()
+                    try? await Task.sleep(for: .seconds(hold))
+                    session.releasePTT()
+                }
             }
             #endif
     }

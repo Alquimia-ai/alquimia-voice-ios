@@ -43,7 +43,8 @@ end to end: Groq Whisper for STT and Groq `gpt-oss-20b` for the reply (secret `G
 Mac: the Simulator has no echo cancellation.
 
 Debug builds also read `ALQUIMIA_RUNTIME_URL`, `ALQUIMIA_TOKEN`, `ALQUIMIA_ASSISTANT_ID`, `ALQUIMIA_MODE`
-(`handsFree` | `pushToTalk`) and `ALQUIMIA_AUTOSTART=1` from the environment
+(`handsFree` | `pushToTalk`), `ALQUIMIA_AUTOSTART=1` (start a hands-free call) and `ALQUIMIA_AUTOPTT_SECONDS=<n>`
+(press, hold n seconds and release the push-to-talk control) from the environment
 (`SIMCTL_CHILD_… xcrun simctl launch booted ai.alquimia.voice`).
 
 ## Protocol notes

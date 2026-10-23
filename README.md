@@ -1,74 +1,55 @@
 # Alquimia Voice (iOS)
 
-Proof-of-concept SwiftUI app that talks to an Alquimia agent by voice through the runtime's live-audio
-WebSocket (`/live/{assistant_id}/{channel_id}`). Two modes: **hands-free** (one socket per call, the server's
-VAD segments turns) and **push to talk** (hold to speak, release to send `stop`). The transcript is fetched
-from `GET /context/retrieve` after each reply. Styling follows [DESIGN.md](https://www.alquimia.ai/DESIGN.md).
+SwiftUI proof of concept: talk to an Alquimia agent by voice through the runtime's live-audio WebSocket
+(`/live/{assistant_id}/{channel_id}`). Two modes, hands-free and push to talk; the transcript shows up after
+each reply. Styled after [DESIGN.md](https://www.alquimia.ai/DESIGN.md).
 
-## Requirements
+## Run it
 
-- Xcode 26+ with an iOS 17+ simulator runtime (`xcodebuild -downloadPlatform iOS`)
-- [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`)
-- `uv` for the Python tools
-
-## Build and test
+Requirements: Xcode 26+ with an iOS 17+ simulator runtime, [XcodeGen](https://github.com/yonaskolb/XcodeGen).
 
 ```bash
 xcodegen generate
+open AlquimiaVoice.xcodeproj          # pick an iPhone simulator and press ⌘R
 xcodebuild test -scheme AlquimiaVoice -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 
-## Configure
+On first launch the settings sheet asks for:
 
-The settings sheet asks for the runtime URL (`http`/`https` decides `ws`/`wss`), the assistant id (its spec
-must have an `audio` block), the agentspace (`default`) and a channel id (any value; one per device keeps the
-per-IP session limit separate). "Test connection" validates URL and credentials.
+- **Runtime URL** (`https://…` becomes `wss://…`), **assistant id** (its spec needs an `audio` block) and agentspace.
+- **Credentials**: *Sign in with Alquimia* (Keycloak device flow; tokens live in the Keychain and the app
+  refreshes them by itself) or a static token for runtimes using `AUTH_PROVIDER=api_token`.
 
-Credentials: either **Sign in with Alquimia** (OAuth device flow against the Keycloak realm, `offline_access`
-scope; the app stores the tokens in the Keychain and refreshes the short-lived access token before every
-connection) or a static bearer token for runtimes configured with `AUTH_PROVIDER=api_token`. The realm URL and
-client id default to the production values and can be changed in the same section.
+Use headphones with the simulator: it has no echo cancellation.
+
+## Voice agent
+
+The runtime needs an agent whose spec has an `audio` block (speech-to-text + text-to-speech). The configuration
+verified end to end is in `tools/voice-agent.groq-kokoro.example.json`: Groq Whisper and `gpt-oss-20b`
+(secret `GROQ_API_KEY`) plus a [Kokoro-FastAPI](https://github.com/remsky/Kokoro-FastAPI) deployment as an
+OpenAI-compatible TTS (secrets `KOKORO_API_KEY`, `TTS_PROVIDER_BASE_URL`, `STT_PROVIDER_BASE_URL`). Register it
+with `POST /registry/agent`.
 
 ## Tools
 
 ```bash
-# Protocol-exact mock of the runtime (echoes each utterance back, fake transcript, same close codes)
+# Mock runtime (echoes each utterance back, fake transcript, same close codes)
 uv run --with "websockets>=13" tools/mock_live_server.py --token dev --port 8080
-
-# Probe any runtime from the Mac before using the app (writes the reply to reply.wav)
+# Probe a real runtime from the Mac; writes the reply to reply.wav
 uv run --with "websockets>=13" tools/live_probe.py --url wss://host/live/agent/probe --token "$TOKEN" --stop
 ```
 
-Point the app at `http://localhost:8080`, token `dev`, assistant `mock` to use the mock.
-`tools/voice-agent.example.json` is a minimal audio-enabled agent spec (`openai/transcribe` + `openai/tts`) for a
-runtime with an `OPENAI_API_KEY` secret. `tools/voice-agent.groq-kokoro.example.json` is the configuration verified
-end to end: Groq Whisper for STT and Groq `gpt-oss-20b` for the reply (secret `GROQ_API_KEY`), and a
-[Kokoro-FastAPI](https://github.com/remsky/Kokoro-FastAPI) deployment as an OpenAI-compatible TTS (secrets
-`KOKORO_API_KEY`, `TTS_PROVIDER_BASE_URL`, `STT_PROVIDER_BASE_URL`). Register with `POST /registry/agent`. Use headphones on the
-Mac: the Simulator has no echo cancellation.
+Debug builds accept `ALQUIMIA_RUNTIME_URL`, `ALQUIMIA_ASSISTANT_ID`, `ALQUIMIA_TOKEN`, `ALQUIMIA_REFRESH_TOKEN`,
+`ALQUIMIA_MODE`, `ALQUIMIA_AUTOSTART=1` and `ALQUIMIA_AUTOPTT_SECONDS=<n>` from the environment
+(`SIMCTL_CHILD_…` with `xcrun simctl launch`) for simulator automation.
 
-Debug builds also read `ALQUIMIA_RUNTIME_URL`, `ALQUIMIA_TOKEN`, `ALQUIMIA_ASSISTANT_ID`, `ALQUIMIA_MODE`
-(`handsFree` | `pushToTalk`), `ALQUIMIA_REFRESH_TOKEN` (seed a Keycloak session), `ALQUIMIA_AUTOSTART=1` (start a hands-free call) and `ALQUIMIA_AUTOPTT_SECONDS=<n>`
-(press, hold n seconds and release the push-to-talk control) from the environment
-(`SIMCTL_CHILD_… xcrun simctl launch booted ai.alquimia.voice`).
+## Protocol
 
-## Protocol notes
-
-- Auth: `Authorization: Bearer <token>`; a bad token fails the handshake with 401/403.
-- Client → server (text frames): `{"event":"audio","payload":"<base64 PCM s16le 16 kHz mono>"}`, `{"event":"stop"}`.
-- Server → client: `{"event":"audio",…}` as unpaced 20 ms frames; no transcript or status events.
-  `{"event":"clear"}` is handled if a future runtime sends it.
-- Server VAD: 30 ms frames, activation ≈ −40 dBFS, min speech 250 ms, trailing silence 700 ms, max 10 s.
-  Processing is sequential, so the app never streams the mic while a reply plays.
-- Limits: 10 sessions per `(channel_id, IP)`, 3600 s per session (close 1008).
-
-## Layout
-
-`AlquimiaVoice/` — `App`, `Design` (tokens, Geist fonts), `Components`, `Features` (`Call`, `Transcript`,
-`Settings`), `Audio` (engine, capture, local VAD, playback), `Networking` (endpoint, WebSocket actor),
-`Support`. `AlquimiaVoiceTests/` holds the Swift Testing suites; `tools/` the mock server and probe.
+Bearer token on the handshake. The client sends text frames `{"event":"audio","payload":"<base64 PCM s16le
+16 kHz mono>"}` and `{"event":"stop"}`; the server answers with `{"event":"audio",…}` frames only, after its
+own VAD closes the turn (700 ms of silence). The mic is never streamed while a reply plays.
 
 ## License
 
-Apache License 2.0 ([LICENSE](LICENSE)). The bundled Geist fonts are under the SIL Open Font License 1.1
+Apache License 2.0 ([LICENSE](LICENSE)). The Geist fonts are under the SIL Open Font License 1.1
 (`AlquimiaVoice/Design/Fonts/OFL.txt`).

@@ -141,7 +141,11 @@ actor LiveConnection {
             finish(.closed(task.closeCode.rawValue, Self.reasonString(task.closeReason)))
             return
         }
-        finish(.failed(LiveError.transport(error.localizedDescription)))
+        // The socket was open and the peer dropped it without a close frame (the production runtime
+        // ends a push-to-talk turn this way once the reply burst is sent). Report it as an abnormal
+        // close (1006) so the call state machine finishes the turn instead of treating it as an error.
+        Log.net.info("socket dropped without close frame: \(error.localizedDescription, privacy: .public)")
+        finish(.closed(1006, nil))
     }
 
     private func handleOpen() {
@@ -178,7 +182,9 @@ actor LiveConnection {
         } else if closedLocally {
             finish(.cancelled)
         } else if let error {
-            finish(.failed(LiveError.transport(error.localizedDescription)))
+            // Same as the receive path: once open, a dropped connection is an abnormal close, not a failure.
+            Log.net.info("socket completed with error after open: \(error.localizedDescription, privacy: .public)")
+            finish(.closed(1006, nil))
         }
     }
 

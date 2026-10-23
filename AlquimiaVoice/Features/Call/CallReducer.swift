@@ -217,8 +217,10 @@ enum CallReducer {
             return (s, [.playbackEnqueue])
 
         case (.speaking, .releasePTT):
+            // The server already answered this turn (VAD or force split); a `stop` now would make it
+            // re-evaluate the utterance. The socket is closed once playback drains.
             s.pttHeld = false
-            return (s, s.socketOpen ? [.sendStop] : [])
+            return (s, [])
 
         case (.thinking, .releasePTT):
             s.pttHeld = false

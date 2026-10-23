@@ -200,8 +200,12 @@ struct PushToTalkReducerTests {
         #expect(state.phase == .speaking)
         #expect(effects == [.micGate(open: false), .cancelMaxHoldTimer, .playbackEnqueue])
         (state, effects) = run([.releasePTT], from: state)
-        #expect(effects == [.sendStop])
+        #expect(effects.isEmpty, "no stop: the turn was already answered")
         #expect(!state.pttHeld)
+        let (idle, idleEffects) = run([.socketClosed(code: 1006, reason: nil), .playbackDrained], from: state)
+        #expect(idle.phase == .idle)
+        #expect(idle.hint == nil)
+        #expect(idleEffects == [.fetchTranscript])
     }
 
     @Test func bargeInByPressingDuringReply() {

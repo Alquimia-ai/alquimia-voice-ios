@@ -20,9 +20,14 @@ xcodebuild test -scheme AlquimiaVoice -destination 'platform=iOS Simulator,name=
 
 ## Configure
 
-The settings sheet asks for the runtime URL (`http`/`https` decides `ws`/`wss`), a bearer token, the assistant
-id (its spec must have an `audio` block), the agentspace (`default`) and a channel id (any value; one per
-device keeps the per-IP session limit separate). "Test connection" validates URL and token.
+The settings sheet asks for the runtime URL (`http`/`https` decides `ws`/`wss`), the assistant id (its spec
+must have an `audio` block), the agentspace (`default`) and a channel id (any value; one per device keeps the
+per-IP session limit separate). "Test connection" validates URL and credentials.
+
+Credentials: either **Sign in with Alquimia** (OAuth device flow against the Keycloak realm, `offline_access`
+scope; the app stores the tokens in the Keychain and refreshes the short-lived access token before every
+connection) or a static bearer token for runtimes configured with `AUTH_PROVIDER=api_token`. The realm URL and
+client id default to the production values and can be changed in the same section.
 
 ## Tools
 
@@ -43,7 +48,7 @@ end to end: Groq Whisper for STT and Groq `gpt-oss-20b` for the reply (secret `G
 Mac: the Simulator has no echo cancellation.
 
 Debug builds also read `ALQUIMIA_RUNTIME_URL`, `ALQUIMIA_TOKEN`, `ALQUIMIA_ASSISTANT_ID`, `ALQUIMIA_MODE`
-(`handsFree` | `pushToTalk`), `ALQUIMIA_AUTOSTART=1` (start a hands-free call) and `ALQUIMIA_AUTOPTT_SECONDS=<n>`
+(`handsFree` | `pushToTalk`), `ALQUIMIA_REFRESH_TOKEN` (seed a Keycloak session), `ALQUIMIA_AUTOSTART=1` (start a hands-free call) and `ALQUIMIA_AUTOPTT_SECONDS=<n>`
 (press, hold n seconds and release the push-to-talk control) from the environment
 (`SIMCTL_CHILD_… xcrun simctl launch booted ai.alquimia.voice`).
 

@@ -2,7 +2,9 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(SettingsStore.self) private var settings
+    @Environment(AuthManager.self) private var auth
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
     @State private var showToken = false
     @State private var testing = false
     @State private var testMessage: String?
@@ -13,6 +15,10 @@ struct SettingsView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: Theme.Space.xxl) {
+                    section(L10n.Auth.section, number: "00") {
+                        accountContent
+                    }
+
                     section(L10n.Settings.runtimeSection, number: "01") {
                         field(L10n.Settings.runtimeURL) {
                             TextField(L10n.Settings.runtimePlaceholder, text: $settings.runtimeURL)
@@ -41,14 +47,14 @@ struct SettingsView: View {
                         HStack(spacing: Theme.Space.md) {
                             Button(testing ? L10n.Settings.testing : L10n.Actions.testConnection) { runTest() }
                                 .buttonStyle(PrimaryButtonStyle())
-                                .disabled(testing || !settings.isConfigured)
+                                .disabled(testing || !settings.isConfigured(signedIn: auth.isSignedIn))
                             if let testMessage {
                                 Text(testMessage)
                                     .font(Theme.Typography.bodySm)
                                     .foregroundStyle(testFailed ? Theme.Palette.error : Theme.Palette.muted)
                             }
                         }
-                        if let validation = settings.validationMessage {
+                        if let validation = settings.validationMessage(signedIn: auth.isSignedIn) {
                             Text(validation)
                                 .font(Theme.Typography.bodySm)
                                 .foregroundStyle(Theme.Palette.ember)
@@ -118,18 +124,91 @@ struct SettingsView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(L10n.Actions.done) { dismiss() }
-                        .disabled(!settings.isConfigured)
+                        .disabled(!settings.isConfigured(signedIn: auth.isSignedIn))
                 }
             }
         }
-        .interactiveDismissDisabled(!settings.isConfigured)
+        .interactiveDismissDisabled(!settings.isConfigured(signedIn: auth.isSignedIn))
+    }
+
+    /// Keycloak session: sign in with the device flow, or show who is signed in.
+    @ViewBuilder
+    private var accountContent: some View {
+        @Bindable var settings = settings
+        if auth.isSignedIn {
+            Text(String(format: L10n.Auth.signedInAs, auth.username ?? "—"))
+                .font(Theme.Typography.bodyMd)
+                .foregroundStyle(Theme.Palette.ink)
+            if let expiry = auth.accessTokenExpiry {
+                Text(String(format: L10n.Auth.tokenValidUntil, expiry.formatted(date: .omitted, time: .shortened)))
+                    .font(Theme.Typography.bodySm)
+                    .foregroundStyle(Theme.Palette.muted)
+            }
+            Button(L10n.Auth.signOut) { auth.signOut() }
+                .buttonStyle(OutlineButtonStyle())
+        } else {
+            switch auth.signInState {
+            case .waitingForApproval(let authorization):
+                Text(L10n.Auth.codeInstructions)
+                    .font(Theme.Typography.bodySm)
+                    .foregroundStyle(Theme.Palette.muted)
+                Text(authorization.userCode)
+                    .font(Theme.Typography.monoLarge)
+                    .foregroundStyle(Theme.Palette.ink)
+                    .textSelection(.enabled)
+                HStack(spacing: Theme.Space.md) {
+                    Button(L10n.Auth.openBrowser) {
+                        openURL(authorization.verificationURIComplete ?? authorization.verificationURI)
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
+                    Button(L10n.Auth.cancel) { auth.cancelSignIn() }
+                        .buttonStyle(OutlineButtonStyle())
+                }
+                HStack(spacing: Theme.Space.sm) {
+                    ProgressView().tint(Theme.Palette.ember)
+                    Text(L10n.Auth.waiting)
+                        .font(Theme.Typography.bodySm)
+                        .foregroundStyle(Theme.Palette.muted)
+                }
+            case .idle, .failed:
+                Button(L10n.Auth.signIn) { auth.beginSignIn() }
+                    .buttonStyle(PrimaryButtonStyle())
+                if case .failed(let message) = auth.signInState {
+                    Text(message)
+                        .font(Theme.Typography.bodySm)
+                        .foregroundStyle(Theme.Palette.error)
+                }
+            }
+            HStack(spacing: Theme.Space.md) {
+                field(L10n.Auth.realmURL) {
+                    TextField(SettingsStore.defaultRealmURL, text: $settings.realmURL)
+                        .keyboardType(.URL)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                        .inputField()
+                }
+                field(L10n.Auth.clientID) {
+                    TextField(SettingsStore.defaultClientID, text: $settings.clientID)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                        .inputField()
+                        .frame(maxWidth: 150)
+                }
+            }
+        }
     }
 
     private func runTest() {
         testing = true
         testMessage = nil
         Task {
-            let result = await settings.testConnection()
+            let result: Result<Int, any Error>
+            do {
+                let token = try await auth.validAccessToken()
+                result = await settings.testConnection(token: token)
+            } catch {
+                result = .failure(error)
+            }
             switch result {
             case .success:
                 testMessage = L10n.Settings.testOK

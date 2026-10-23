@@ -3,6 +3,7 @@ import SwiftUI
 struct CallView: View {
     @Environment(SettingsStore.self) private var settings
     @Environment(CallSession.self) private var session
+    @Environment(AuthManager.self) private var auth
     @Environment(\.scenePhase) private var scenePhase
     @Binding var showSettings: Bool
 
@@ -29,7 +30,7 @@ struct CallView: View {
             if phase == .background { session.handleBackground() }
         }
         .task {
-            if settings.isConfigured { session.refreshTranscript() }
+            if settings.isConfigured(signedIn: auth.isSignedIn) { session.refreshTranscript() }
         }
     }
 

@@ -64,7 +64,7 @@ enum L10n {
         static let runtimeSection = "Runtime"
         static let runtimeURL = "Runtime URL"
         static let runtimePlaceholder = "https://runtime.example.com"
-        static let token = "Token (Bearer)"
+        static let token = "Static token (optional, used when not signed in)"
         static let tokenPlaceholder = "API token or JWT"
         static let agentSection = "Agent"
         static let assistantID = "Assistant ID"
@@ -81,11 +81,30 @@ enum L10n {
         static let activation = "Activation threshold"
         static let activationHelp = "The server uses −40 dBFS. This value only affects the on-screen “Thinking” state."
         static let invalidURL = "Enter a valid http:// or https:// URL."
-        static let missingToken = "Token is missing."
+        static let missingToken = "Sign in or paste a static token."
         static let missingAssistant = "Assistant id is missing."
         static let testing = "Testing…"
         static let testOK = "Connection and token are valid."
         static let testFailed = "Test failed: %@"
+    }
+
+    enum Auth {
+        static let section = "Account"
+        static let signIn = "Sign in with Alquimia"
+        static let signOut = "Sign out"
+        static let signedInAs = "Signed in as %@"
+        static let tokenValidUntil = "Access token valid until %@; renewed automatically."
+        static let openBrowser = "Open sign-in page"
+        static let codeInstructions = "Open the sign-in page, enter this code and approve the access:"
+        static let waiting = "Waiting for approval…"
+        static let cancel = "Cancel"
+        static let realmURL = "Keycloak realm URL"
+        static let clientID = "Client ID"
+        static let invalidRealm = "The Keycloak realm URL is not valid."
+        static let denied = "The sign-in request was denied."
+        static let codeExpired = "The sign-in code expired. Start again."
+        static let sessionExpired = "The session expired. Sign in again."
+        static let notSignedIn = "Sign in or paste a static token."
     }
 
     enum Errors {

@@ -20,6 +20,7 @@ final class CallSession {
     let maxHold: Duration
 
     private let settings: SettingsStore
+    private let auth: AuthManager
     private let audio: AudioEngineController
     private let transcriptClient: TranscriptClient
 
@@ -42,12 +43,14 @@ final class CallSession {
 
     init(
         settings: SettingsStore,
+        auth: AuthManager,
         audio: AudioEngineController,
         transcriptClient: TranscriptClient = TranscriptClient(),
         thinkingTimeout: Duration = .seconds(45),
         maxHold: Duration = .milliseconds(9_500)
     ) {
         self.settings = settings
+        self.auth = auth
         self.audio = audio
         self.transcriptClient = transcriptClient
         self.thinkingTimeout = thinkingTimeout
@@ -108,9 +111,8 @@ final class CallSession {
     }
 
     func refreshTranscript() {
-        guard let endpoint = settings.endpoint, !settings.token.isEmpty else { return }
+        guard let endpoint = settings.endpoint else { return }
         transcriptTask?.cancel()
-        let token = settings.token
         let sessionID = settings.sessionID
         let assistantID = settings.trimmedAssistantID
         let agentspaceID = settings.agentspaceID
@@ -120,6 +122,8 @@ final class CallSession {
             self.isLoadingTranscript = true
             defer { self.isLoadingTranscript = false }
             do {
+                let token = try await self.auth.validAccessToken()
+                guard !Task.isCancelled else { return }
                 let messages = try await client.fetch(
                     endpoint: endpoint, token: token, sessionID: sessionID,
                     assistantID: assistantID, agentspaceID: agentspaceID
@@ -208,14 +212,16 @@ final class CallSession {
             agentspaceID: settings.agentspaceID,
             sessionID: settings.sessionID
         )
-        let request = RuntimeRequests.live(url: url, token: settings.token)
         connectionGeneration += 1
         let generation = connectionGeneration
-        let connection = LiveConnection(request: request)
-        self.connection = connection
         connectionTask = Task { [weak self] in
             guard let self else { return }
             do {
+                // Always connect with a token that is still valid (Keycloak access tokens last minutes).
+                let token = try await self.auth.validAccessToken()
+                guard generation == self.connectionGeneration else { return }
+                let connection = LiveConnection(request: RuntimeRequests.live(url: url, token: token))
+                self.connection = connection
                 try await connection.connect()
                 guard generation == self.connectionGeneration else {
                     await connection.close()

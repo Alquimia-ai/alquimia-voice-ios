@@ -14,7 +14,12 @@ final class SettingsStore {
         static let localBargeIn = "localBargeIn"
         static let sessionID = "sessionID"
         static let activationDBFS = "vadActivationDBFS"
+        static let realmURL = "keycloakRealmURL"
+        static let clientID = "keycloakClientID"
     }
+
+    static let defaultRealmURL = "https://auth.alquimia.ai/realms/production"
+    static let defaultClientID = "alquimia-cli"
 
     private static let tokenAccount = "apiToken"
 
@@ -31,6 +36,8 @@ final class SettingsStore {
     private(set) var sessionID: String { didSet { defaults.set(sessionID, forKey: Keys.sessionID) } }
     /// Local VAD activation threshold in dBFS (the server uses −40 dBFS). UI only.
     var activationDBFS: Double { didSet { defaults.set(activationDBFS, forKey: Keys.activationDBFS) } }
+    var realmURL: String { didSet { defaults.set(realmURL, forKey: Keys.realmURL) } }
+    var clientID: String { didSet { defaults.set(clientID, forKey: Keys.clientID) } }
 
     init(defaults: UserDefaults = .standard, keychain: Keychain = Keychain(service: "ai.alquimia.voice")) {
         self.defaults = defaults
@@ -44,6 +51,8 @@ final class SettingsStore {
         localBargeIn = defaults.object(forKey: Keys.localBargeIn) as? Bool ?? true
         sessionID = defaults.string(forKey: Keys.sessionID) ?? SessionID.make()
         activationDBFS = defaults.object(forKey: Keys.activationDBFS) as? Double ?? Double(LevelMeter.serverThresholdDBFS)
+        realmURL = defaults.string(forKey: Keys.realmURL) ?? Self.defaultRealmURL
+        clientID = defaults.string(forKey: Keys.clientID) ?? Self.defaultClientID
         defaults.set(channelID, forKey: Keys.channelID)
         defaults.set(sessionID, forKey: Keys.sessionID)
         #if DEBUG
@@ -62,6 +71,8 @@ final class SettingsStore {
         if let value = env["ALQUIMIA_ASSISTANT_ID"], !value.isEmpty { assistantID = value }
         if let value = env["ALQUIMIA_AGENTSPACE_ID"], !value.isEmpty { agentspaceID = value }
         if let value = env["ALQUIMIA_MODE"], let parsed = VoiceMode(rawValue: value) { mode = parsed }
+        if let value = env["ALQUIMIA_REALM_URL"], !value.isEmpty { realmURL = value }
+        if let value = env["ALQUIMIA_CLIENT_ID"], !value.isEmpty { clientID = value }
     }
     #endif
 
@@ -70,15 +81,17 @@ final class SettingsStore {
     var endpoint: RuntimeEndpoint? { RuntimeEndpoint(string: runtimeURL) }
     var trimmedAssistantID: String { assistantID.trimmingCharacters(in: .whitespacesAndNewlines) }
     var trimmedToken: String { token.trimmingCharacters(in: .whitespacesAndNewlines) }
+    var trimmedClientID: String { clientID.trimmingCharacters(in: .whitespacesAndNewlines) }
 
-    var validationMessage: String? {
+    /// Problems that stop a call from starting. A Keycloak session or a static token is required.
+    func validationMessage(signedIn: Bool) -> String? {
         if endpoint == nil { return L10n.Settings.invalidURL }
-        if trimmedToken.isEmpty { return L10n.Settings.missingToken }
         if trimmedAssistantID.isEmpty { return L10n.Settings.missingAssistant }
+        if !signedIn && trimmedToken.isEmpty { return L10n.Settings.missingToken }
         return nil
     }
 
-    var isConfigured: Bool { validationMessage == nil }
+    func isConfigured(signedIn: Bool) -> Bool { validationMessage(signedIn: signedIn) == nil }
 
     var vadParams: LocalVAD.Params {
         var params = LocalVAD.Params()
@@ -99,11 +112,11 @@ final class SettingsStore {
     }
 
     /// Validates URL + token against the runtime by fetching the (possibly empty) history of the current session.
-    func testConnection(using client: TranscriptClient = TranscriptClient()) async -> Result<Int, any Error> {
+    func testConnection(token: String, using client: TranscriptClient = TranscriptClient()) async -> Result<Int, any Error> {
         guard let endpoint else { return .failure(LiveError.invalidConfiguration) }
         do {
             let messages = try await client.fetch(
-                endpoint: endpoint, token: trimmedToken, sessionID: sessionID,
+                endpoint: endpoint, token: token, sessionID: sessionID,
                 assistantID: trimmedAssistantID, agentspaceID: agentspaceID
             )
             return .success(messages.count)

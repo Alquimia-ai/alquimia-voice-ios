@@ -17,9 +17,11 @@
 		31ACE4705E4648BD4825564A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C86209B5D0215F7867E221A /* Assets.xcassets */; };
 		33F9ACD7D52DFAB5254BCA94 /* LocalVADTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295175F7B7CE74BACE101C59 /* LocalVADTests.swift */; };
 		34D69E2FFE652E54F8B5A509 /* GeistMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE3276EC214322D7A2AFCB9C /* GeistMono-Regular.otf */; };
+		380121403A47AEB54513F796 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E744031F9093AF2184D744 /* AuthManager.swift */; };
 		38DF906103489D55F8EE1146 /* TestSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E68EFC35EC5D4420947AB35 /* TestSignals.swift */; };
 		3A4F0C04BDC97613F135DA1C /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748E3CD7D48482B2AA64B0 /* StatusBadge.swift */; };
 		3DF5737103929B81EBA3AE8D /* EyebrowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F40A01E3C25AA5A3DF479 /* EyebrowLabel.swift */; };
+		3FBDBF7AB9DB0466D5F2D4A5 /* KeycloakClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0579F45B7579B5723CF685A /* KeycloakClient.swift */; };
 		42DB6A2AA15597F332C421E6 /* LiveEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF912C9CD5B09EB6004F0524 /* LiveEnvelope.swift */; };
 		498986558375002A534DA17B /* CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA5C800213DDB687CCB3CE4 /* CaptureProcessor.swift */; };
 		4F5E5742D3BB0C5ECD19236A /* Geist-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D23029112D999485A6DADADE /* Geist-Bold.otf */; };
@@ -35,6 +37,7 @@
 		83959A6A545E28C9B4612B1B /* Geist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D67D34639DBB58ECE26EF9F /* Geist-Medium.otf */; };
 		8C89FFEF4D86DD7862E90A26 /* PCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E9F0AB4B37FBA7C699726B /* PCM.swift */; };
 		929EFA3F93D995C5C6CE644E /* RuntimeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AA6083E4D43C202A7A83F /* RuntimeEndpoint.swift */; };
+		97D7245C133C489F94B80B5C /* KeycloakClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB1A71FB5E6FE87CC698F4A /* KeycloakClientTests.swift */; };
 		AC2ED00EFB0911DAE937E163 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E6260FD4C794E62BB43C20 /* CallView.swift */; };
 		AC82AB29250131BF0F3C5B0C /* LevelMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B902D32CCE54409BFDAB715B /* LevelMeterView.swift */; };
 		B05EA8BF4F2ECEA6413475D0 /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC48340C9A3277DC105F40C /* TranscriptView.swift */; };
@@ -80,6 +83,7 @@
 		295175F7B7CE74BACE101C59 /* LocalVADTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVADTests.swift; sourceTree = "<group>"; };
 		35748E3CD7D48482B2AA64B0 /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
 		3B90505913DFA5B1ECF1B408 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		41E744031F9093AF2184D744 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		4301A7ACC2DDBCD4C9C7B82B /* LevelMeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMeterTests.swift; sourceTree = "<group>"; };
 		44867995DB8E506030F75273 /* TranscriptClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptClient.swift; sourceTree = "<group>"; };
 		479AE118599E386A107A6AB9 /* Geist-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geist-Regular.otf"; sourceTree = "<group>"; };
@@ -125,7 +129,9 @@
 		D5662BF009E0E50B7CBE2873 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		D5E6260FD4C794E62BB43C20 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		DF912C9CD5B09EB6004F0524 /* LiveEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveEnvelope.swift; sourceTree = "<group>"; };
+		DFB1A71FB5E6FE87CC698F4A /* KeycloakClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycloakClientTests.swift; sourceTree = "<group>"; };
 		EE8F40A01E3C25AA5A3DF479 /* EyebrowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyebrowLabel.swift; sourceTree = "<group>"; };
+		F0579F45B7579B5723CF685A /* KeycloakClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycloakClient.swift; sourceTree = "<group>"; };
 		F417215A0F21387B06B66C78 /* PCMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMTests.swift; sourceTree = "<group>"; };
 		FF7E819E7E3FB0B50B678649 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +159,7 @@
 		334B08F2C5FEF4282508F829 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F0579F45B7579B5723CF685A /* KeycloakClient.swift */,
 				A194DEE6C40FFCE840952CCA /* LiveConnection.swift */,
 				DF912C9CD5B09EB6004F0524 /* LiveEnvelope.swift */,
 				B41275BABB62D7AFB9879E00 /* LiveError.swift */,
@@ -190,6 +197,7 @@
 		897E5ECF400B7AC7D97D3948 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				41E744031F9093AF2184D744 /* AuthManager.swift */,
 				B8ACDA8C932A995BF321F6B7 /* SettingsStore.swift */,
 				C35946C053AB7821485DF720 /* SettingsView.swift */,
 			);
@@ -235,6 +243,7 @@
 			children = (
 				7B701E728D65B19DF611C082 /* CallReducerTests.swift */,
 				8EAA12B459C11C4804B77B63 /* CaptureProcessorTests.swift */,
+				DFB1A71FB5E6FE87CC698F4A /* KeycloakClientTests.swift */,
 				4301A7ACC2DDBCD4C9C7B82B /* LevelMeterTests.swift */,
 				78BE9DFBFC49E781ACAAFBEB /* LiveEnvelopeTests.swift */,
 				295175F7B7CE74BACE101C59 /* LocalVADTests.swift */,
@@ -411,6 +420,7 @@
 				B4CD4550C44EFDD7EDC91640 /* AlquimiaVoiceApp.swift in Sources */,
 				5C91928C92A46CDEED5A7E1F /* AudioActor.swift in Sources */,
 				180A51A1CCB51BDF9D7C7FC3 /* AudioEngineController.swift in Sources */,
+				380121403A47AEB54513F796 /* AuthManager.swift in Sources */,
 				0900F73F82E12EF7AF6E6C0A /* ButtonStyles.swift in Sources */,
 				194A7959DBFCC33543A8B159 /* CallReducer.swift in Sources */,
 				DA3E34AFADAACC9B5AF6A2A4 /* CallSession.swift in Sources */,
@@ -421,6 +431,7 @@
 				045CB723D327F173E7805130 /* HairlineCard.swift in Sources */,
 				0F1C43528FBA366D049A0279 /* HoldToTalkButton.swift in Sources */,
 				D3E384BA9E883A71EED800D6 /* Keychain.swift in Sources */,
+				3FBDBF7AB9DB0466D5F2D4A5 /* KeycloakClient.swift in Sources */,
 				67003E8AC55245A1B258BBD7 /* L10n.swift in Sources */,
 				C47F05944E577D29D333DB49 /* LevelMeter.swift in Sources */,
 				AC82AB29250131BF0F3C5B0C /* LevelMeterView.swift in Sources */,
@@ -453,6 +464,7 @@
 			files = (
 				F8F752CA1B7CB3FB4F933AC7 /* CallReducerTests.swift in Sources */,
 				5F15573D342404527DE47507 /* CaptureProcessorTests.swift in Sources */,
+				97D7245C133C489F94B80B5C /* KeycloakClientTests.swift in Sources */,
 				51C5DC950299EE595E6C8FB7 /* LevelMeterTests.swift in Sources */,
 				E457A7F658E77359412171FD /* LiveEnvelopeTests.swift in Sources */,
 				33F9ACD7D52DFAB5254BCA94 /* LocalVADTests.swift in Sources */,
